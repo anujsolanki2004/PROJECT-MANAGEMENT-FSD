@@ -1,59 +1,117 @@
 # Project Management System
 
-This is a project management system built using React for the frontend and Spring Boot for the backend. It allows users to add, delete, and view projects, as well as add tasks to those projects.
+A full-stack project management application built with React.js and Spring Boot.
 
 ## Features
 
-- **Project Management:**
-  - Add new projects with a title, description, and other relevant details.
-  - Delete projects that are no longer needed.
-  - View a list of all projects with their details.
+- User Authentication & Authorization
+- Project Creation and Management
+- Task Management within Projects
+- Real-time Updates
+- Responsive Design
+- JWT-based Security
 
-- **Task Management:**
-  - Add tasks to each project with a title, description, due date, etc.
-  - Mark tasks as completed or delete tasks as necessary.
-  - View tasks associated with each project.
-
-## Technologies Used
-
-- **Frontend:**
-  - React.js
-  - Vite for faster frontend development
-  - Axios for HTTP requests
-
-- **Backend:**
-  - Spring Boot
-  - Spring Data JPA for persistence
-  - MySQL Database
-  - HikariCP for connection pooling
-
-
-## Installation and Setup
+## Tech Stack
 
 ### Frontend
 
-1. Navigate to the `frontend` directory.
-2. Run `npm install` to install dependencies.
-3. Run `npm run dev` to start the development server with Vite.
-4. Access the frontend at `http://localhost:5173`.
+- React.js
+- Redux Toolkit
+- Tailwind CSS
+- Vite
 
 ### Backend
 
-1. Navigate to the `backend` directory.
-2. Import the project into your IDE.
-3. Configure MySQL connection properties in `application.properties`.
-4. Build the project using Maven.
-5. Run the main class `Application.java` to start the Spring Boot application.
-6. The backend will be running at `http://localhost:8081`.
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- MySQL Database
 
-## Usage
+## Project Structure
 
-1. Open the frontend application in your browser.
-2. Navigate through the application using the provided UI.
-3. Interact with the project and task management functionalities.
-4. Enjoy managing your projects efficiently!
+```
+project-management/
+├── client/                 # Frontend React application
+│   ├── src/
+│   │   ├── components/    # Reusable UI components
+│   │   ├── pages/        # Page components
+│   │   ├── store/        # Redux store and slices
+│   │   └── assets/       # Static assets
+│   └── public/           # Public assets
+│
+└── server/               # Backend Spring Boot application
+    └── projectmangement/
+        ├── src/
+        │   ├── main/
+        │   │   ├── java/
+        │   │   │   └── com/projectmangement/
+        │   │   │       ├── config/     # Configuration classes
+        │   │   │       ├── controller/ # REST controllers
+        │   │   │       ├── service/    # Business logic
+        │   │   │       ├── dao/        # Data access objects
+        │   │   │       └── entities/   # Database entities
+        │   │   └── resources/
+        │   └── test/
+        └── pom.xml
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- Java 17
+- MySQL
+
+### Frontend Setup
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+### Backend Setup
+
+```bash
+cd server/projectmangement
+./mvnw spring-boot:run
+```
+
+## API Endpoints
+
+### Authentication
+
+- POST /api/auth/register - Register new user
+- POST /api/auth/login - User login
+
+### Projects
+
+- GET /api/projects - Get all projects
+- POST /api/projects - Create new project
+- GET /api/projects/{id} - Get project by ID
+- PUT /api/projects/{id} - Update project
+- DELETE /api/projects/{id} - Delete project
+
+### Tasks
+
+- GET /api/projects/{projectId}/tasks - Get all tasks for a project
+- POST /api/projects/{projectId}/tasks - Create new task
+- PUT /api/projects/{projectId}/tasks/{taskId} - Update task
+- DELETE /api/projects/{projectId}/tasks/{taskId} - Delete task
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contributors
 
 - [Parshav Andhariya]
-
